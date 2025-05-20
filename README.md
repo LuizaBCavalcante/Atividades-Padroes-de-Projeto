@@ -11,6 +11,7 @@ Cada atividade está organizada em sua própria pasta, com o código-fonte e arq
 | Atividade | Descrição |
 |----------|-----------|
 | [atividade-strategy](./atividade-strategy) | Implementação do padrão Strategy para leitura de arquivos de retorno de boletos bancários. |
+| [atividade-strategy](./strategy-funcional) | Implementação da leitura de arquivos de retorno do Bradesco, utilizando programação funcional . |
 
 
 ## 💡 Observações
