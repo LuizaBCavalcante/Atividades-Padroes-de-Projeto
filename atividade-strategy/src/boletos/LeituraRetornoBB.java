@@ -12,8 +12,9 @@ public class LeituraRetornoBB implements LeituraRetorno {
     public List<Boleto> lerArquivo(String nomeArquivo) {
         List<Boleto> boletos = new ArrayList<>();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String caminhoArquivo = "arquivos-retorno/" + nomeArquivo;
 
-        try (BufferedReader br = new BufferedReader(new FileReader(nomeArquivo))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
             String linha;
             while ((linha = br.readLine()) != null) {
                 String[] campos = linha.split(";");

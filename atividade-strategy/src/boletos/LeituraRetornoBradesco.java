@@ -14,8 +14,9 @@ public class LeituraRetornoBradesco implements LeituraRetorno {
         List<Boleto> boletos = new ArrayList<>();
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        String caminhoArquivo = "arquivos-retorno/" + nomeArquivo;
 
-        try (BufferedReader br = new BufferedReader(new FileReader(nomeArquivo))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
             String linha;
             while ((linha = br.readLine()) != null) {
                 String[] campos = linha.split(";");
