@@ -1,4 +1,5 @@
+
 public interface CalculadoraDesconto {
 
-    double calcular(double valor);
+    double calcular(Venda venda);
 }

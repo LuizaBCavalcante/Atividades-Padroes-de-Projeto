@@ -1,26 +1,22 @@
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
+        LocalDate hoje = LocalDate.now();
+        Cliente clienteAniversariante = new Cliente(1L, "Luiza Cavalcante", hoje.withYear(1992));
 
-        Venda venda = new Venda(600.00);
+        Venda venda = new Venda(clienteAniversariante, hoje, 600.00);
 
-        System.out.println("*************************************************");
+        System.out.println("Simulando descontos para uma venda de R$ " + venda.getValorTotal());
+        System.out.println("******************************************************\n");
 
-
-        CalculadoraDesconto descontoFixo = new DescontoFixo(0.10);
-        venda.setEstrategiaDeDesconto(descontoFixo);
+        venda.setEstrategiaDeDesconto(new DescontoFixo(0.10));
         venda.calcularValorFinal();
 
-        System.out.println("*************************************************");
-
-        CalculadoraDesconto descontoProgressivo = new DescontoProgressivo();
-        venda.setEstrategiaDeDesconto(descontoProgressivo);
+        venda.setEstrategiaDeDesconto(new DescontoProgressivo());
         venda.calcularValorFinal();
 
-        System.out.println("*************************************************");
-
-        CalculadoraDesconto descontoAniversario = new DescontoAniversario();
-        venda.setEstrategiaDeDesconto(descontoAniversario);
+        venda.setEstrategiaDeDesconto(new DescontoAniversario());
         venda.calcularValorFinal();
-
     }
 }

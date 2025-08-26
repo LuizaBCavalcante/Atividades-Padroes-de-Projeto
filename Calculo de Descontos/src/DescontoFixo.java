@@ -1,3 +1,4 @@
+
 public class DescontoFixo implements CalculadoraDesconto {
     private final double percentual;
 
@@ -6,9 +7,8 @@ public class DescontoFixo implements CalculadoraDesconto {
     }
 
     @Override
-    public double calcular(double valor) {
+    public double calcular(Venda venda) {
         System.out.println("Calculando com desconto fixo de " + (percentual * 100) + "%:");
-        return valor * this.percentual;
+        return venda.getValorTotal() * this.percentual;
     }
 }
-
